@@ -15,6 +15,7 @@ ReadMe.pod: doc/CafeScript.swim
 	swim --to=pod --wrap --complete $< > $@
 
 lib/CafeScript/Grammar.js: lib/CafeScript/Grammar.pegcoffee force
-	$(PEGJS) $< $@.tmp && mv $@.tmp $@
+	$(PEGJS) $< $@.tmp
+	mv $@.tmp $@
 
 force:

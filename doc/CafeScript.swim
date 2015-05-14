@@ -26,10 +26,16 @@ This is a PegJS spike of a CafeScript compiler. You'll need NodeJS and the
 following:
 
   > npm install -g coffee-script
-  > npm install -g pegjs
-  > npm install -g pegjs-coffee-plugin
-  > npm install -g js-yaml
+  > npm install pegjs
+  > npm install pegjs-coffee-plugin
+  > npm install js-yaml
+  > npm install sprintf
 
 Then run:
 
-  make test
+  > make test
+
+For parser trace debugging support:
+
+  > npm install --force pegjs/pegjs#master  # Install master from GitHub
+  > PEGJS_DEBUG=1 make test

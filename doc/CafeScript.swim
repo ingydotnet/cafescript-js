@@ -1,0 +1,35 @@
+CafeScript
+==========
+
+Coffee Inspired Syntax for Lingy
+
+= Synopsis
+
+  cafe foo.cafe > foo.ly.yaml
+  lingy foo.ly.yaml -o Foo.js
+  lingy foo.ly.yaml -o Foo.pm
+  lingy foo.ly.yaml -o Foo.p6
+  lingy foo.ly.yaml -o Foo.rb
+  lingy foo.ly.yaml -o Foo.py
+  lingy foo.ly.yaml -o Foo.php
+  lingy foo.ly.yaml -o Foo.tcl
+  lingy foo.ly.yaml -o Foo.java
+
+= Description
+
+CafeScript is a CoffeeScript inspired syntax that compiles to many languages.
+Actually it compiles to a Lingy AST, and lingy emits the desired code.
+
+= Dev Setup
+
+This is a PegJS spike of a CafeScript compiler. You'll need NodeJS and the
+following:
+
+  > npm install -g coffee-script
+  > npm install -g pegjs
+  > npm install -g pegjs-coffee-plugin
+  > npm install -g js-yaml
+
+Then run:
+
+  make test

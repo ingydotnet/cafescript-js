@@ -1,0 +1,5 @@
+#!/usr/bin/env coffee
+
+require '../lib/CafeScript'
+
+(new global.CafeScript).run process.argv[2..]

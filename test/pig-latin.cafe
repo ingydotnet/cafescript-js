@@ -1,0 +1,21 @@
+###
+This is the canonical Pig::Latin module/class, written in the Cafe syntax of
+the Lingy language. From this source, all the other programming language ports
+of this code will be generated.
+###
+
+Class Pig::Latin
+@english
+
+@\convert
+  pig-latin-words = @english.split.map \(word)
+    lword = word.lower
+    match = lword =~ /^([^aeiou]*)(.*)$/
+      or !!! "Error parsing word '$word'"
+    ay = match:1 == 0 ? 'way' : 'ay'
+    pword = match:2 + match:1 + ay
+    if word:0.is-upper
+      pword:0.upper + pword:1:
+    else
+      pword
+  pig-latin-words.join

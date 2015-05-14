@@ -1,0 +1,40 @@
+{
+  global.AST = []
+
+  global.j = (a)->
+    a.join ''
+  global.j1 = (a)->
+    (n[1] for n in a).join ''
+}
+
+cafescript = (
+  comment*
+  meta_section?
+  ( comment / class )+
+) {
+  AST
+}
+
+comment = (blank_line / block_comment / line_comment)
+
+blank_line = ([\ \t]* "\n")+
+
+block_comment = (
+  $("###\n")
+  s:((!"\n###\n" .)*)
+  "\n###\n"
+) {
+  AST.push BLOCK_COMMENT: j1 s
+}
+
+line_comment = '#' [^\n]* "\n"
+
+meta_section = 'XXX'
+
+class = (
+  ('Class' s:(.*))
+) {
+  AST.push Class: j s
+}
+
+EOL = $("\r"? "\n") {''}
